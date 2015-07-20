@@ -67,7 +67,10 @@ public class MainActivity extends Activity {
         new RetrieveImageTask(imgView)
                 .execute((String) urls.get(selection));*/
 
-        String url = "http://www.gifbase.com/tag/smile?format=json";
+        Random rand = new Random();
+        int randomPage = rand.nextInt(14);
+
+        String url = String.format("http://www.gifbase.com/tag/smile?format=json&p=%d", randomPage);
 
         new RetrieveJsonTask(imgView).execute(url);
     }
